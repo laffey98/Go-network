@@ -1,7 +1,6 @@
 package print
 
 import (
-	"encoding/json"
 	"fmt"
 	"time"
 )
@@ -21,16 +20,17 @@ func Printvar(place string, a ...interface{}) {
 	printtime()
 	fmt.Print(" [print] ")
 	fmt.Print("[", place, "] ")
+	//fmt.Print("json encode:")
 	for _, data := range a {
-		dataJson, err := json.Marshal(data)
-		if err != nil {
-			fmt.Print("\n	")
+		//dataJson, err := json.Marshal(data)
+		fmt.Print(data, " ")
+		/* if err != nil {
+			fmt.Print("\n")
 			Printerr(err, con_place)
 			fmt.Println("json encode failed!")
 			return
-		}
-		fmt.Print("json encode:")
-		fmt.Print(string(dataJson), " ")
+		} */
+		//fmt.Print(string(dataJson), " ")
 	}
 	fmt.Print("\n")
 }
